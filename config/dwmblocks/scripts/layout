@@ -1,0 +1,4 @@
+#! /bin/bash
+
+OUTPUT=$("~/.config/dwmblocks-distrotube/scripts/xkblayout-state")
+echo "$OUTPUT"
