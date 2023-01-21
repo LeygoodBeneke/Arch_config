@@ -1,5 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 #include "/home/vpc/code/Arch_config/config/dwm-6.4/themes/default.h" // <- default theme
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -55,12 +56,19 @@ static const Layout layouts[] = {
 static const char *roficmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *langcmd[]  = { "pkill", "-RTMIN+10", "dwmblocks", NULL };
+static const char *volumecmd[]  = { "pkill", "-RTMIN+9", "dwmblocks", NULL };
+static const char *volupcmd[] = { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
+static const char *voldowncmd[] = { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = roficmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
   { Mod4Mask,                     XK_space,  spawn,          {.v = langcmd } },
+  { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = voldowncmd } },
+  { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = volupcmd } },
+  { 0,              XF86XK_AudioLowerVolume, spawn,          {.v = volumecmd } },
+  { 0,              XF86XK_AudioRaiseVolume, spawn,          {.v = volumecmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
