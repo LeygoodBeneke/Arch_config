@@ -3,7 +3,6 @@ configuration{
     lines: 8;
     font: "Iosevka 20";
     show-icons: true;
-    icon-theme: "Paper Mono";
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
     location: 0;
