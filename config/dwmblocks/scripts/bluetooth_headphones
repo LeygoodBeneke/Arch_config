@@ -1,8 +1,0 @@
-#! /bin/bash 
-MAC="E4:41:22:B9:5F:DD";
-IS_CONNECTED="$(bluetoothctl info $MAC | grep 'Battery Percentage:' | awk '{print $4}' | tr -d \) | tr -d \()";
-
-if [[ -n $IS_CONNECTED ]]
-then
-  echo "|    $IS_CONNECTED% ";
-fi
