@@ -1,0 +1,12 @@
+#!/bin/bash
+ENG=00000000
+RUS=00001004
+LANG=$(xset -q|grep LED| awk '{ print $10 }')
+if [[ $LANG -eq $ENG ]]
+then
+  echo " en "
+elif [[ $LANG -eq $RUS ]]
+then
+  echo " ru "
+fi
+
